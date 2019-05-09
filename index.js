@@ -58,10 +58,10 @@ class SnakeGame {
 
       if (this.isGameOver) {
 
+        this.currentDirection = DIRECTIONS.right
         this.snake = this.initSnake()
         this.food = this.initFood()
         this.score = 0
-        this.currentDirection = DIRECTIONS.right
         this.isGameOver = false
       }
     })
@@ -105,8 +105,8 @@ class SnakeGame {
   initFood () {
     
     return {
-      top: Math.floor(Math.random() * Math.floor(this.gameView.height)) + 1,
-      left: Math.floor(Math.random() * Math.floor(this.gameView.width)) + 1,
+      top: Math.floor(Math.random() * Math.floor(this.gameView.height) - 1) + 1,
+      left: Math.floor(Math.random() * Math.floor(this.gameView.width) - 1) + 1,
     }
   }
 
