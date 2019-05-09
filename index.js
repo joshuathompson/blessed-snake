@@ -28,6 +28,7 @@ class SnakeGame {
     this.currentDirection = DIRECTIONS.right
     this.screen = this.initScreen()
     this.gameView = this.initGameView()
+    this.scoreView = this.initScoreView()
     this.snake = this.initSnake()
     this.food = this.initFood()
     this.score = 0
@@ -82,6 +83,22 @@ class SnakeGame {
       height: `100%`,
       top: `2%`,
       left: `0%`
+    })
+  }
+
+  initScoreView () {
+
+    return blessed.box({
+      parent: this.screen,
+      width: `100%`,
+      height: `2%`,
+      top: `0%`,
+      left: `0%`,
+      content: `Score ${this.score}`,
+      style: {
+        bg: `white`,
+        fg: `black`
+      }
     })
   }
 
@@ -170,6 +187,9 @@ class SnakeGame {
 
     this.gameView.detach()
     this.gameView = this.initGameView()
+
+    this.scoreView.detach()
+    this.scoreView = this.initScoreView()
   }
 
   update () {
@@ -205,19 +225,6 @@ class SnakeGame {
       left: this.food.left,
       style: {
         bg: `white`
-      }
-    })
-
-    blessed.box({
-      parent: this.screen,
-      width: `100%`,
-      height: `2%`,
-      top: `0%`,
-      left: `0%`,
-      content: `Score ${this.score}`,
-      style: {
-        bg: `white`,
-        fg: `black`
       }
     })
 
