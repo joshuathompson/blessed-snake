@@ -61,7 +61,7 @@ class SnakeGame {
         this.snake = this.initSnake()
         this.food = this.initFood()
         this.score = 0
-        this.currentDirection = DIRECTIONS.left
+        this.currentDirection = DIRECTIONS.right
         this.isGameOver = false
       }
     })
